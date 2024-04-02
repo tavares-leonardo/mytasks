@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+</head>
+<body>
+    
+    <h2>New Task</h2>
+    <form method="POST" action="/insert">
+        <label for="Description">Nome:</label>
+        <input type="text" name="description" required><br>
+        <input type="submit" value="new">
+    </form>
+
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task[1] }}</li>
+        <a href="/delete/{{ task[0] }}">Excluir</a>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
